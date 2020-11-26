@@ -10,6 +10,7 @@ $(document).ready(
     var numeriSbagliati = [];
     var numeriRicordati = [];
     var time = 29;
+    var randomTime = Math.floor(Math.random() * 10) + 1;
 
     numbersPC();
     alert("I numeri da memorizare sono: " + numbersPcArray);
@@ -17,7 +18,7 @@ $(document).ready(
     $(".timer").text( "Timer: " + time );
 
     var timer = setInterval(timer, 1000);
-    setTimeout(numbersUser, 30000);
+    var rottura = setInterval(numeroCasuale, randomTime * 1000);
 
     function numbersPC() {
       for (var i = 0; i < 5; i++) {
@@ -42,7 +43,9 @@ $(document).ready(
 
     function timer() {
       if (time == 0) {
+        clearInterval( rottura );
         clearInterval( timer );
+        numbersUser();
       } else {
         time--;
         var text = "Timer: " + time;
@@ -103,5 +106,11 @@ $(document).ready(
 
       return null;
     };
+
+    function numeroCasuale() {
+      var numberRandom = Math.floor(Math.random() * 100) + 1;
+      alert("Ti rompo le scatole con il numero: " + numberRandom);
+    };
+
   }
 );
