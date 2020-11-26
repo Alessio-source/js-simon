@@ -95,9 +95,11 @@ $(document).ready(
 
       var msg1 = "Giusti: " + numeriRicordati.length + ". Numeri: " + numeriRicordati;
       var msg2 = "Sbagliati: " + numeriSbagliati.length + ". Numeri: " + numeriSbagliati;
+      var msg3 = "Numeri che dovevi ricordare: " + numbersPcArray;
 
       $(".ricordati").text( msg1 );
       $(".sbagliati").text( msg2 );
+      $(".pc").text( msg3 );
 
       return null;
     };
